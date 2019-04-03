@@ -60,7 +60,7 @@ const Calculator = props => {
 
   const handleOnClickDel = () => {
     if (expression.length !== 1) {
-      setExpression(expression.substr(1, expression.length - 1));
+      setExpression(expression.substr(0, expression.length - 1));
     } else {
       setExpression(0);
     }
