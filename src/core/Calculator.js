@@ -18,6 +18,7 @@ const Calculator = props => {
   const [readOnly, setReadOnly] = useState(true);
   const [disable, setDisable] = useState(true);
   const [expression, setExpression] = useState("");
+  const [parentheses, setParentheses] = useState({ value: "(", status: true });
 
   const handleOnChange = value => {
     if (readOnly === false) {
@@ -26,6 +27,20 @@ const Calculator = props => {
       } else {
         setExpression(expression + value.target.value);
       }
+    }
+  };
+
+  const handleOnClickParentheses = () => {
+    if (parentheses.status) {
+      if (expression === 0) {
+        setExpression(parentheses.value);
+      } else {
+        setExpression(expression + parentheses.value);
+      }
+      setParentheses({ value: ")", status: false });
+    } else {
+      setExpression(expression + parentheses.value);
+      setParentheses({ value: "(", status: true });
     }
   };
 
@@ -92,24 +107,18 @@ const Calculator = props => {
             onClickChange={handleOnChange}
             clickOnOff={handleClickOnOff}
             onClickDel={handleOnClickDel}
+            onClickParentheses={handleOnClickParentheses}
             disable={disable}
             numericButton={props.theme.numericButton}
             equalButton={props.theme.equalButton}
             functionButton={props.theme.functionButton}
             operationButton={props.theme.operationButton}
+            parentheses={parentheses}
           />
         </StyledCol>
       </Base>
     </Col>
   );
-};
-
-Calculator.defaultProps = {
-  background: "#eee",
-  numericButton: "primary",
-  functionButton: "secondary",
-  equalButton: "warning",
-  operationButton: "danger"
 };
 
 export default Calculator;

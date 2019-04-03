@@ -131,8 +131,8 @@ export const Keyboard = props => {
           disabled={props.disable}
         />
         <OperationButton
-          value="()"
-          onClick={props.onClickChange}
+          value={props.parentheses.value}
+          onClick={props.onClickParentheses}
           color={props.operationButton || "danger"}
           disabled={props.disable}
         />
