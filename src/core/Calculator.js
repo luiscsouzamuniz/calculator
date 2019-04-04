@@ -81,9 +81,11 @@ const Calculator = props => {
     }
   };
 
-  const handleKeyPressInput = event => {
-    if (Number.isInteger(event.key) || event.key === "+") {
-      handleOnChange(event.key);
+  const handleOnClickOperation = event => {
+    const value = expression.substr(-1, expression.length - 1);
+    const operation = ["*", "/", "+", "-", "(", "."];
+    if (operation.includes(value) === false) {
+      setExpression(expression + event.target.value);
     }
   };
 
@@ -96,7 +98,6 @@ const Calculator = props => {
               backgroundColor={onOff}
               readOnly={readOnly}
               value={expression}
-              onKeyPress={handleKeyPressInput} // Digitar os numeros com teclado
             />
           </Row>
         </Col>
@@ -108,6 +109,7 @@ const Calculator = props => {
             clickOnOff={handleClickOnOff}
             onClickDel={handleOnClickDel}
             onClickParentheses={handleOnClickParentheses}
+            onClickOperation={handleOnClickOperation}
             disable={disable}
             numericButton={props.theme.numericButton}
             equalButton={props.theme.equalButton}
