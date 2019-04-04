@@ -28,7 +28,7 @@ export const Keyboard = props => {
         />
         <OperationButton
           value="+"
-          onClick={props.onClickChange}
+          onClick={props.onClickOperation}
           color={props.operationButton || "danger"}
           disabled={props.disable}
         />
@@ -54,7 +54,7 @@ export const Keyboard = props => {
         />
         <OperationButton
           value="-"
-          onClick={props.onClickChange}
+          onClick={props.onClickOperation}
           color={props.operationButton || "danger"}
           disabled={props.disable}
         />
@@ -80,7 +80,7 @@ export const Keyboard = props => {
         />
         <OperationButton
           value="/"
-          onClick={props.onClickChange}
+          onClick={props.onClickOperation}
           color={props.operationButton || "danger"}
           disabled={props.disable}
         />
@@ -106,7 +106,7 @@ export const Keyboard = props => {
         />
         <OperationButton
           value="*"
-          onClick={props.onClickChange}
+          onClick={props.onClickOperation}
           color={props.operationButton || "danger"}
           disabled={props.disable}
         />
@@ -126,7 +126,7 @@ export const Keyboard = props => {
         />
         <OperationButton
           value="."
-          onClick={props.onClickChange}
+          onClick={props.onClickOperation}
           color={props.numericButton || "primary"}
           disabled={props.disable}
         />
