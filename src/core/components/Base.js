@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledCardBody = styled(CardBody)`
   background-color: ${props => props.background || "#eee"};
-  width: 30%;
+  width: 400px;
   margin: 0 auto;
   border-radius: 15px;
 `;
